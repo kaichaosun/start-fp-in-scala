@@ -52,3 +52,28 @@ res1: String = computer
 ### functions
 
 [Functions vs Methods](http://jim-mcbeath.blogspot.com/2009/05/scala-functions-vs-methods.html)
+
+### common data structure
+**List:**
+```
+scala> List(1,2,3)
+res0: List[Int] = List(1, 2, 3)
+
+scala> 1 :: 2 :: 3 :: Nil
+res1: List[Int] = List(1, 2, 3)
+```
+**Set:**
+```
+scala> Set(1, 1, 2)
+res2: scala.collection.immutable.Set[Int] = Set(1, 2)
+```
+**Seq:**
+```
+scala> Seq(1,1,2)
+res3: Seq[Int] = List(1, 1, 2)
+```
+**Map:**
+```
+scala> Map('a'->1, 'b'->2)
+res4: res1: scala.collection.immutable.Map[Char,Int] = Map(a -> 1, b -> 2) 
+```
