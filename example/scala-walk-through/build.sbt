@@ -7,6 +7,11 @@ lazy val root = (project in file(".")).
       scalaVersion := "2.12.3",
       version      := "0.1.0-SNAPSHOT"
     )),
-    name := "Hello",
-    libraryDependencies += scalaTest % Test
+    name := "scala-walk-through",
+    libraryDependencies ++= projectDependencies
   )
+
+lazy val projectDependencies = Seq(
+  "org.scalatest" %% "scalatest" % "3.0.3",
+  "org.typelevel" %% "cats-core" % "1.0.1"
+)

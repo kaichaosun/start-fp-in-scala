@@ -6,6 +6,6 @@ trait Cache[K, V] {
   def delete(key: K)
 }
 
-object Cache {
-  Set[String]
-}
+//object Cache {
+//  Set[String]
+//}
