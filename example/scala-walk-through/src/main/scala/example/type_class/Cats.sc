@@ -50,3 +50,24 @@ val x = new Date()
 val y = new Date()
 x === y
 x === x
+
+sealed trait Shape
+
+case class Circle(radius: Double) extends Shape
+
+var circles: List[Circle] = List(Circle(10.0))
+var shapes: List[Shape] = circles
+
+trait Json
+trait JsonWriter[-A] {
+  def write(value: A): Json
+}
+
+val shape: Shape = ???
+val circle: Circle = ???
+
+val shapeWriter: JsonWriter[Shape] = ???
+val circleWriter: JsonWriter[Circle] = ???
+
+def format[A](value: A, writer: JsonWriter[A]): Json =
+  writer.write(value)
