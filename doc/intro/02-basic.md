@@ -77,3 +77,6 @@ res3: Seq[Int] = List(1, 1, 2)
 scala> Map('a'->1, 'b'->2)
 res4: res1: scala.collection.immutable.Map[Char,Int] = Map(a -> 1, b -> 2) 
 ```
+
+**Stream:**
+
