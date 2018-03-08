@@ -8,3 +8,9 @@ import org.atnos.eff.syntax.option._
 
 fromOption(Option(1)).runOption
 
+val result = Eff.pure(1)
+
+result.map(x => {
+  println(x)
+  x+1
+})
