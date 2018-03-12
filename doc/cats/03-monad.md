@@ -23,4 +23,20 @@ for {
 ```
 ### Either
 
+### Eval Manad
+Eval有三个子类型，Now、Later和Always。
+```
+import cats.Eval
 
+val now = Eval.now(1)
+val later = Eval.later(2)
+val always = Eval.always(3)
+```
+通过`value`方法进行取值。
+
+Eval和Scala lazy的比较：
+| scala | cats | properties |
+|---|---|---|
+| val | Now | eager, memoized |
+| lazy val | Later | lazy, memoized |
+| def | Always | lazy, not memoized |
