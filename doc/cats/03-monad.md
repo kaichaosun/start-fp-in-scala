@@ -40,3 +40,6 @@ Eval和Scala lazy的比较：
 | val | Now | eager, memoized |
 | lazy val | Later | lazy, memoized |
 | def | Always | lazy, not memoized |
+
+### Writer
+

@@ -49,3 +49,16 @@ trait DatabaseEffect {
   case class Get[A](id: Int) extends Db[Record]
   case class Update[A](id: Int, record: Record) extends Db[Record]
 }
+
+
+trait t {
+  protected val a: Int = 1
+}
+
+case object Test extends t {
+  override val a: Int = 2
+}
+
+case object test2 extends Test {
+
+}

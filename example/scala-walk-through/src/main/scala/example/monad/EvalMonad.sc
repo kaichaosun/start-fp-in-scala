@@ -40,3 +40,13 @@ now.value
 later.value
 
 always.value
+
+val greeting = Eval
+  .always {
+    println("Step 1"); "Hello"
+  }
+  .map {
+    str => println("Step 2"); s"$str world"
+  }
+
+greeting.value
