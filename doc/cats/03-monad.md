@@ -43,3 +43,7 @@ Eval和Scala lazy的比较：
 
 ### Writer
 
+### State
+
+### Custom Monad
+通过实现flatMap, pure, tailRecM为一个自定义的类型提供Monad。

@@ -51,7 +51,7 @@ object Main extends App {
   val email = "kaichaosuna@gmail.com"
   val result = (checkPasswordLength(password), checkEmailPattern(email)).mapN((_,_))
 
-  result: Validated
+//  result: Validated
 
   println(result)
 }

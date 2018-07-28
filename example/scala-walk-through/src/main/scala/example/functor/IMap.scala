@@ -15,7 +15,7 @@ trait Codec[A] {
     }
 }
 
-case class Box[A](value: A)
+case class Box2[A](value: A)
 
 object MainImap extends App {
   def encode[A](value: A)(implicit c: Codec[A]): String =
