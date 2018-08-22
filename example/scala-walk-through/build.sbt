@@ -14,6 +14,7 @@ lazy val root = (project in file(".")).
 
 val circeVersion = "0.9.3"
 val Specs2Version = "4.0.2"
+val Http4sVersion = "0.18.0"
 
 lazy val projectDependencies = Seq(
   "org.scalatest" %% "scalatest" % "3.0.3",
@@ -27,6 +28,10 @@ lazy val projectDependencies = Seq(
   "org.specs2" %% "specs2-core" % Specs2Version % Test,
   "org.specs2" %% "specs2-scalacheck" % Specs2Version % Test,
   "io.monix" %% "monix" % "3.0.0-RC1",
+  "org.http4s" %% "http4s-blaze-server" % Http4sVersion,
+  "org.http4s" %% "http4s-blaze-client" % Http4sVersion,
+  "org.http4s" %% "http4s-circe" % Http4sVersion,
+  "org.http4s" %% "http4s-dsl" % Http4sVersion,
 )
 
 addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.3")
