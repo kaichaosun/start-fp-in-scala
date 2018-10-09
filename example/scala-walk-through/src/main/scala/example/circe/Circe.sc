@@ -32,3 +32,7 @@ val nested: Nested[List, Option, Int] = Nested(listOption)
 
 nested.map(_ + 1)
 
+import io.circe.syntax._
+
+val list = List("timestamp" := 10, "severity" := "ERROR")
+Json.fromFields(list).noSpaces
