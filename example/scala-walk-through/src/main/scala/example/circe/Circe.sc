@@ -36,3 +36,15 @@ import io.circe.syntax._
 
 val list = List("timestamp" := 10, "severity" := "ERROR")
 Json.fromFields(list).noSpaces
+
+val json1 = Json.obj(
+  "a" -> 1.asJson,
+  "b" -> "hehe".asJson,
+  "c" -> Json.obj(
+    "c1" -> 1.asJson
+  )
+)
+
+val json2 = Json.obj("c" -> Json.obj("c2" -> 2.asJson))
+
+json1.deepMerge(json2)
