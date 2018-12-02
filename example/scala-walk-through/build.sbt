@@ -37,6 +37,7 @@ lazy val projectDependencies = Seq(
   "org.http4s" %% "http4s-dsl" % Http4sVersion,
   "org.typelevel" %% "cats-effect" % "1.0.0",
   "com.typesafe.akka" %% "akka-actor" % AkkaVersion,
+  "com.typesafe.akka" %% "akka-testkit" % AkkaVersion % Test,
   "com.typesafe.akka" %% "akka-typed" % AkkaVersion,
   "com.typesafe.akka" %% "akka-actor-typed" % "2.5.16"
 )
