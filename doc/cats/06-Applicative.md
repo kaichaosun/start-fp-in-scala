@@ -1,3 +1,0 @@
-applicative function, aka applicative
-
-
