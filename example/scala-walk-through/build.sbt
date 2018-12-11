@@ -39,7 +39,8 @@ lazy val projectDependencies = Seq(
   "com.typesafe.akka" %% "akka-actor" % AkkaVersion,
   "com.typesafe.akka" %% "akka-testkit" % AkkaVersion % Test,
   "com.typesafe.akka" %% "akka-typed" % AkkaVersion,
-  "com.typesafe.akka" %% "akka-actor-typed" % "2.5.16"
+  "com.typesafe.akka" %% "akka-actor-typed" % "2.5.16",
+  "com.typesafe.akka" %% "akka-remote" % "2.5.18"
 )
 
 addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.3")

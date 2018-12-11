@@ -1,7 +1,8 @@
 package example.akka.demodb
 import akka.actor.ActorSystem
 import akka.testkit.TestActorRef
-import example.akka.demodb.messages.SetRequest
+import example.akka.demodb.server.DemoDb
+import example.akka.demodb.server.messages.SetRequest
 import org.scalatest.{BeforeAndAfterEach, FunSpecLike, Matchers}
 
 class DemoDbSpec extends FunSpecLike with Matchers with BeforeAndAfterEach {
