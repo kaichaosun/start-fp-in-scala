@@ -17,6 +17,7 @@ val Specs2Version = "4.0.2"
 val Http4sVersion = "0.18.0"
 val AkkaVersion = "2.5.6"
 val CatsVersion = "1.0.1"
+val doobieVersion = "0.6.0"
 
 lazy val projectDependencies = Seq(
   "org.scalatest" %% "scalatest" % "3.0.3",
@@ -40,7 +41,13 @@ lazy val projectDependencies = Seq(
   "com.typesafe.akka" %% "akka-testkit" % AkkaVersion % Test,
   "com.typesafe.akka" %% "akka-typed" % AkkaVersion,
   "com.typesafe.akka" %% "akka-actor-typed" % "2.5.16",
-  "com.typesafe.akka" %% "akka-remote" % "2.5.18"
+  "com.typesafe.akka" %% "akka-remote" % "2.5.18",
+  "org.tpolecat" %% "doobie-core"     % doobieVersion,
+  "org.tpolecat" %% "doobie-postgres" % doobieVersion,
+  "org.tpolecat" %% "doobie-specs2"   % doobieVersion,
+  "com.chuusai" %% "shapeless" % "2.3.3",
+  "org.scalaz" %% "scalaz-core" % "7.2.27",
+  "io.circe" %% "circe-yaml" % "0.9.0"
 )
 
 addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.3")
