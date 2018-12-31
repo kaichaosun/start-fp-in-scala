@@ -1,24 +1,51 @@
-# A tutorial for Functional programming in Scala
+**A tutorial for Functional programming in Scala**
 
-# Setup
+* [Setup](#setup)
+   * [安装Java 8 JDK](#安装java-8-jdk)
+   * [安装sbt, 0.13.13或更高版本](#安装sbt-01313或更高版本)
+   * [Hello world with sbt](#hello-world-with-sbt)
+   * [REPL](#repl)
+* [Basics in Scala](#basics-in-scala)
+   * [val vs var](#val-vs-var)
+   * [Expression](#expression)
+   * [Function](#function)
+   * [Common data structure](#common-data-structure)
+* [Scala类型系统：Parameterized Types 和 Variances](#scala类型系统parameterized-types-和-variances)
+   * [Why variance](#why-variance)
+* [Common used libraries](#common-used-libraries)
+* [Cats](#cats)
+   * [Id](#id)
+   * [Either](#either)
+   * [Eval Manad](#eval-manad)
+   * [Writer](#writer)
+   * [State](#state)
+   * [Custom Monad](#custom-monad)
+   * [Monad transformer](#monad-transformer)
+   * [Validated](#validated)
+* [Http4s](#http4s)
+* [Shapeless](#shapeless)
+* [References](#references)
 
-## 安装Java 8 JDK
+
+## Setup
+
+### 安装Java 8 JDK
 打开terminal，检查版本
 ```
 java -version
 ```
 如果没有安装，请在[这里下载](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-## 安装sbt, 0.13.13或更高版本
+### 安装sbt, 0.13.13或更高版本
 Mac OSX 使用brew进行安装:
 ```
 brew install sbt
 ```
 
 Linux 安装:
-TODO
+#TODO
 
-## Hello world in Scala 
+### Hello world with sbt 
 sbt 0.13.13 增加了`new`命令，可以根据模块创建Scala项目。
 ```
 sbt new sbt/scala-seed.g8
@@ -58,9 +85,7 @@ Hello, Functional Programming!
 
 Ctrl + d 或输入`exit`退出sbt。
 
-# Basics in Scala
-
-## REPL
+### REPL
 REPL (Read-Eval-Print Loop)是编程语言的交互执行环境，可以通过下面两种方式进入Scala的REPL：
 * sbt console
 * amm
@@ -69,17 +94,17 @@ REPL (Read-Eval-Print Loop)是编程语言的交互执行环境，可以通过�
 sudo curl -L -o /usr/local/bin/amm https://git.io/vdNv2 && sudo chmod +x /usr/local/bin/amm && amm
 ```
 
-## Scala basics
+## Basics in Scala
+
 本文包含一些基本的语法和概念，如常量、变量、表达式、函数等。可以通过REPL进行练习，增加对语法的熟悉。
 
-### val
+### val vs var
 通过val, 可以将表达式的结果赋值给一个常量，常量值不能改变。
 ```
 scala> val three = 1 + 2
 two: Int = 3
 ``` 
 
-### var
 var定义的值为变量，可被修改。
 ```
 scala> var name = "dasheng"
@@ -89,7 +114,7 @@ scala> name = "kaichao"
 name: String = kaichao
 ```
 
-### expressions
+### Expression
 Scala中几乎所有的语句都是表达式，就连`if else`、`patter match`也都是表达式。
 expressions 总是返回结果，几乎不产生任何side effect；相反，statements 并不返回任何结果，仅仅为了获取side effect而执行。
 EOP（expression-oriented programming）是函数式编程语言的共有特点，更多内容请参考[这里](https://alvinalexander.com/scala/best-practice-think-expression-oriented-programming-eop)。
@@ -109,11 +134,11 @@ scala> "hp" match {
 res1: String = computer
 ```
 
-### functions
+### Function
 
 [Functions vs Methods](http://jim-mcbeath.blogspot.com/2009/05/scala-functions-vs-methods.html)
 
-### common data structure
+### Common data structure
 **List:**
 ```
 scala> List(1,2,3)
@@ -140,9 +165,9 @@ res4: res1: scala.collection.immutable.Map[Char,Int] = Map(a -> 1, b -> 2)
 
 **Stream:**
 
-# Scala类型系统：Parameterized Types 和 Variances
+## Scala类型系统：Parameterized Types 和 Variances
 
-## Why variance
+### Why variance
 Scala中集合是covariance，我们可以使用子类集合替换父类集合。例如，List[Circle]可以用于任意需要一个List[Shape]的地方，因为Circle是Shape的子类。
 
 Contravariance, 当构造代表一些操作的类型时，十分有用。如JsonWriter type class:
@@ -165,14 +190,11 @@ JsonWriter[Shape]是JsonWriter[Circle]的子类，也就是所，任何使用sha
 那么我们的circle就可以和任意一个writer结合使用。
 
 
-## References
-[1] https://blog.codecentric.de/en/2015/03/scala-type-system-parameterized-types-variances-part-1/
+## Common used libraries
 
-# Common used libraries
+## Cats
 
-# Cats
-
-## 常用的Monad
+常用的Monad
 
 ### Id
 
@@ -219,24 +241,24 @@ Eval和Scala lazy的比较：
 ### Custom Monad
 通过实现flatMap, pure, tailRecM为一个自定义的类型提供Monad。
 
-## Monad transformer
+### Monad transformer
 
 Cats为很多Monad提供了transformer，以T结尾，如：EitherT是Either和其他Monad组合，OptionT组合Option和其他Monad。
 
-## Validated
+### Validated
 * map, leftMap, bimap
 * toEither
 * withEither
 * ensure
 
 
-# Http4s
+## Http4s
 
 HTTP applications are jsut a Kleisli function from a streaming request to a polymorphic effect of a streaming reponse.
 
 https://rossabaker.github.io/boston-http4s/
 
-# Shapeless
+## Shapeless
 Function1:
 ```scala
 val f: A => B = ???
@@ -249,3 +271,5 @@ or
 val nat: F[A] => G[A]
 ```
 
+## References
+[1] https://blog.codecentric.de/en/2015/03/scala-type-system-parameterized-types-variances-part-1/
