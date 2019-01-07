@@ -258,6 +258,8 @@ HTTP applications are jsut a Kleisli function from a streaming request to a poly
 
 https://rossabaker.github.io/boston-http4s/
 
+## Circe
+
 ## Shapeless
 Function1:
 ```scala
