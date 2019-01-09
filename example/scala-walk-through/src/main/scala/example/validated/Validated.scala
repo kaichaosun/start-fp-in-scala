@@ -48,7 +48,7 @@ object Main extends App {
   //createUser("123456", "kaichaosuna@gmail.com")
 
   val password = "123456"
-  val email = "kaichaosuna@gmail.com"
+  val email = "email@gmail.com"
   val result = (checkPasswordLength(password), checkEmailPattern(email)).mapN((_,_))
 
 //  result: Validated
