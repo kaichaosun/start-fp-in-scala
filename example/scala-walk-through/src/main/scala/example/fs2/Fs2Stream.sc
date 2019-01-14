@@ -49,7 +49,7 @@ val chunk = Stream.chunk(Chunk.doubles(Array(1.0,2.0,3.0)))
 
 import cats.implicits._
 
-val err = Stream.raiseError[IO[_]](new Exception("oh noes!"))
+//val err = Stream.raiseError[IO[_]](new Exception("oh noes!"))
 
 import fs2._
 // import fs2._
