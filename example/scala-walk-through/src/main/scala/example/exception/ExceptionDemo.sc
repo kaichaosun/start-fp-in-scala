@@ -59,7 +59,8 @@ def divide4(m: Int, n: Int): Validated[NonEmptyList[String], Int] =
   if (n == 0) Invalid(NonEmptyList.of("one error"))
   else Valid(m / n)
 
-val result4 = (divide4(5, 1), divide4(10, 1)).mapN((_, _))
+// broke in worksheet
+// val result4 = (divide4(5, 1), divide4(10, 1)).mapN((_, _))
 
 // MonadError
 
