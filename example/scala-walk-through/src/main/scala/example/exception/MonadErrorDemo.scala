@@ -24,7 +24,7 @@ object CustomizeError {
 object MonadErrorDemo {
   def divide[F[_], E](m: Int, n: Int)(implicit monadError: MonadError[F, E],
       error: CustomError[E]): F[Int] =
-    if (n == 0) monadError.raiseError(error.errorFromString("Could not parse JSON String"))
+    if (n == 0) monadError.raiseError(error.errorFromString("Divide by 0"))
     else monadError.pure(m / n)
 
   val divideTry = divide[Try, Throwable](10, 0)

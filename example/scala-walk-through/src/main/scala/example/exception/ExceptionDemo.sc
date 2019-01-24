@@ -56,11 +56,11 @@ val result3 = for {
 import cats.implicits._
 
 def divide4(m: Int, n: Int): Validated[NonEmptyList[String], Int] =
-  if (n == 0) Invalid(NonEmptyList.of("one error"))
-  else Valid(m / n)
+  if (n == 0) Invalid(NonEmptyList.of("one error")) else Valid(m / n)
 
 // broke in worksheet
-// val result4 = (divide4(5, 1), divide4(10, 1)).mapN((_, _))
+//val result4 = (divide4(5, 1), divide4(10, 1)).mapN((_, _))
+
 
 // MonadError
 
@@ -74,4 +74,4 @@ boom.attempt.map{
   case _ => "other error"
 }.unsafeRunSync()
 
-val result5 = IO.delay(10 / 0).flatMap(n => IO(println(n)))
+val result5 = IO.delay(10 / 0).flatMap(n => IO(println(n))).unsafeRunSync()
