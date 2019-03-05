@@ -51,7 +51,8 @@ lazy val projectDependencies = Seq(
   "io.circe" %% "circe-yaml" % "0.9.0",
   "com.github.julien-truffaut" %%  "monocle-core"  % monocleVersion,
   "com.github.julien-truffaut" %%  "monocle-macro" % monocleVersion,
-  "com.github.julien-truffaut" %%  "monocle-law"   % monocleVersion % "test"
+  "com.github.julien-truffaut" %%  "monocle-law"   % monocleVersion % "test",
+  "com.github.tototoshi" %% "scala-csv" % "1.3.5",
 )
 
 addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.3")
