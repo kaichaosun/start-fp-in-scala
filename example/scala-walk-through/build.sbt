@@ -12,7 +12,7 @@ lazy val root = (project in file(".")).
     scalacOptions ++= advancedScalaOptions
   )
 
-val CirceVersion = "0.9.3"
+val CirceVersion = "0.10.0"
 val Specs2Version = "4.0.2"
 val Http4sVersion = "0.18.0"
 val AkkaVersion = "2.5.6"
