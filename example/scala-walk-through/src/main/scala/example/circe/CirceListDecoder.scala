@@ -27,12 +27,23 @@ object CirceListDecoder extends App {
     }
   }
 
-  implicit val allDecoder = new Decoder[List[TestModel]] {
-    override def apply(c: HCursor) =
+  implicit val allDecoder: Decoder[List[TestModel]] = new Decoder[List[TestModel]] {
+    override def apply(c: HCursor) = {
+      import CirceListDecoder.testDecoder
+      import io.circe.generic.auto._
       for {
         result <- c.downField("e").get[List[TestModel]]("b")
       } yield result
+    }
+
   }
+
+//  implicit object allDecoder extends Decoder[List[TestModel]] {
+//    override def apply(c: HCursor) =
+//      for {
+//        result <- c.downField("e").get[List[TestModel]]("b")(allDecoder)
+//      } yield result
+//  }
 
   val result = io.circe.parser.decode(input)(allDecoder)
   println(result)
