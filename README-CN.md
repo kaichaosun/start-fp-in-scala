@@ -27,38 +27,31 @@
 * [References](#references)
 
 
-
-[TOC]
-
-
 ## Setup
 
-### Install Java 8 JDK
-Open your favorite terminal, check installed Java version:
-```shell
+### 安装Java 8 JDK
+打开terminal，检查版本
+```
 java -version
 ```
-If it's not installed, download [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+如果没有安装，请在[这里下载](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-### Install sbt
-For Mac OS users: 
-```shell
+### 安装sbt, 0.13.13或更高版本
+Mac OSX 使用brew进行安装:
+```
 brew install sbt
 ```
 
-For Arch Linux users:
-
-```shell
-yay -S sbt
-```
+Linux 安装:
+#TODO
 
 ### Hello world with sbt 
-Using sbt new command to create an simple project:
-```shell
+sbt 0.13.13 增加了`new`命令，可以根据模块创建Scala项目。
+```
 sbt new sbt/scala-seed.g8
 ```
-Follow the prompt information, Input the project name to finish the setup:
-```shell
+根据提示信息，输入你的项目名，完成项目的创建:
+```
 A minimal Scala project.
 
 name [Scala Seed Project]: scala-walk-through
@@ -66,45 +59,40 @@ name [Scala Seed Project]: scala-walk-through
 Template applied in ./scala-walk-through
 ```
 
-Now we have a basic project, check the directories structure:
-```shell
+现在我们已经有了一个最基本的项目，查看目录结构：
+```
 ls -l scala-walk-through
 total 8
 -rw-r--r--  1 kcsun  staff  282 Jan  3 12:00 build.sbt
 drwxr-xr-x  4 kcsun  staff  136 Jan  3 12:00 project
 drwxr-xr-x  4 kcsun  staff  136 Jan  3 12:00 src
+
+它们的职责如下：
 ```
-Let me explain the files:
+* `build.sbt`, 项目的构建文件，包含了项目的基本信息。
+* `project`, 本目录中包含了项目构建过程所依赖的第三方插件等。
+* `src`, 代码包括测试代码的源文件目录。sbt代码管理风格和Maven一致。
 
-* `build.sbt` - the project configuration file, it includes basic information for the project like project name, group name, scala version, dependencies, etc. 
-* `project` - this folder contains the file
-  * `build.properties` used to set sbt version
-  * `plugins.sbt` used to define all the available plugins for the build
-  * Other project settings you want to extract from the `build.sbt` to make the main file clean and tight.
-* `src` - this folder maintains all the source code and test code. sbt has the same code structure style with Maven.  
-
-Modify the source code in`src/main/scala/example/Hello.scala` to be:
-```scala
+修改源代码，将`src/main/scala/example/Hello.scala`，其中一行修改为:
+```
 lazy val greeting: String = "Hello, Functional Programming!"
 ```
 
-Run your newest program with sbt command, you can use `sbt run` directly, or get into interactive mode with `sbt`, then execute `run`. You will get following output if you are lucky:
-
-```shell
+通过sbt运行程序有两种方式，直接通过`sbt run`运行；或者执行`sbt`进入交互REPL模式，再执行`run`。输出：
+```
 Hello, Functional Programming!
 ```
 
-Exit sbt with ctrl + d or simply input `exit`。
+Ctrl + d 或输入`exit`退出sbt。
 
 ### REPL
-REPL (Read-Eval-Print Loop) is one of the most useful environments if you want to try a new programming language. There is a few options for Scala:
-* sbt console - help us import the dependencies in the project, can be used directly in this way.
-
-* amm - most efficient tool developed by [lihaoyi](https://github.com/lihaoyi), it has user friendly features like syntax highlight, multiple line input, etc. Install with following command:
-
-  ```shell
-  sudo curl -L -o /usr/local/bin/amm https://git.io/vdNv2 && sudo chmod +x /usr/local/bin/amm && amm
-  ```
+REPL (Read-Eval-Print Loop)是编程语言的交互执行环境，可以通过下面两种方式进入Scala的REPL：
+* sbt console
+* amm
+其中amm是第三方REPL工具，支持语法高亮、代码复制等用户友好的操作。通过如下命令进行安装：
+```
+sudo curl -L -o /usr/local/bin/amm https://git.io/vdNv2 && sudo chmod +x /usr/local/bin/amm && amm
+```
 
 ## Basics in Scala
 
@@ -115,7 +103,7 @@ REPL (Read-Eval-Print Loop) is one of the most useful environments if you want t
 ```
 scala> val three = 1 + 2
 two: Int = 3
-```
+``` 
 
 var定义的值为变量，可被修改。
 ```
@@ -152,7 +140,6 @@ res1: String = computer
 
 ### Common data structure
 **List:**
-
 ```
 scala> List(1,2,3)
 res0: List[Int] = List(1, 2, 3)
@@ -177,42 +164,6 @@ res4: res1: scala.collection.immutable.Map[Char,Int] = Map(a -> 1, b -> 2)
 ```
 
 **Stream:**
-
-## Practice REST API server with Scala
-
-# Practice REST API server with Scala
-
-* Setup a empty project with sbt.
-
-  Resource: https://www.scala-sbt.org/1.0/docs/sbt-new-and-Templates.html
-
-* Add http4s library and create a test API with response hello world.
-
-  Resource: https://http4s.org/v0.18/service/
-
-* Add model `Post(Int userId, Int id, String title, String body)` and create API to response a single Get post request as String. 
-
-  Resource: https://docs.scala-lang.org/tour/case-classes.html
-
-* Add circe library and make the previous response as JSON, example:
-
-  ```json
-  {
-    "userId": 1,
-    "postId": 1,
-    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-    "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-  }
-  ```
-
-  Resource: https://circe.github.io/circe/codecs/custom-codecs.html
-
-* Add library `http4s-blaze-client`, and call the endpoint to get post information `https://jsonplaceholder.typicode.com/posts/1`
-
-  Resource: https://http4s.org/v0.18/client/
-* Decode the previous response to `Post` model and return as API response.
-
-  Resource: https://circe.github.io/circe/codecs/custom-codecs.html
 
 ## Scala类型系统：Parameterized Types 和 Variances
 
