@@ -1,32 +1,19 @@
 **A tutorial for Functional programming in Scala**
 
-* [Setup](#setup)
-   * [安装Java 8 JDK](#安装java-8-jdk)
-   * [安装sbt, 0.13.13或更高版本](#安装sbt-01313或更高版本)
-   * [Hello world with sbt](#hello-world-with-sbt)
-   * [REPL](#repl)
-* [Basics in Scala](#basics-in-scala)
-   * [val vs var](#val-vs-var)
-   * [Expression](#expression)
-   * [Function](#function)
-   * [Common data structure](#common-data-structure)
-* [Scala类型系统：Parameterized Types 和 Variances](#scala类型系统parameterized-types-和-variances)
-   * [Why variance](#why-variance)
-* [Common used libraries](#common-used-libraries)
-* [Cats](#cats)
-   * [Id](#id)
-   * [Either](#either)
-   * [Eval Manad](#eval-manad)
-   * [Writer](#writer)
-   * [State](#state)
-   * [Custom Monad](#custom-monad)
-   * [Monad transformer](#monad-transformer)
-   * [Validated](#validated)
-* [Http4s](#http4s)
-* [Shapeless](#shapeless)
-* [References](#references)
+Table of Contents
+=================
 
-
+      * [Setup](#setup)
+         * [Install Java 8 JDK](#install-java-8-jdk)
+         * [Install sbt](#install-sbt)
+         * [Hello world with sbt](#hello-world-with-sbt)
+         * [REPL](#repl)
+      * [Basics in Scala](#basics-in-scala)
+         * [val vs var](#val-vs-var)
+         * [Expression](#expression)
+         * [Function](#function)
+         * [Common data structure](#common-data-structure)
+      * [Practice REST API server with Scala](#practice-rest-api-server-with-scala)
 
 [TOC]
 
@@ -148,7 +135,7 @@ res1: String = computer
 
 ### Function
 
-[Functions vs Methods](http://jim-mcbeath.blogspot.com/2009/05/scala-functions-vs-methods.html)
+## [Functions vs Methods](http://jim-mcbeath.blogspot.com/2009/05/scala-functions-vs-methods.html)
 
 ### Common data structure
 **List:**
@@ -178,9 +165,7 @@ res4: res1: scala.collection.immutable.Map[Char,Int] = Map(a -> 1, b -> 2)
 
 **Stream:**
 
-## Practice REST API server with Scala
-
-# Practice REST API server with Scala
+## Scala API server
 
 * Setup a empty project with sbt.
 

@@ -1,6 +1,10 @@
+
+Table of Contents
+=================
+
       * [Setup](#setup)
-         * [安装Java 8 JDK](#安装java-8-jdk)
-         * [安装sbt, 0.13.13或更高版本](#安装sbt-01313或更高版本)
+         * [Install Java 8 JDK](#install-java-8-jdk)
+         * [Install sbt](#install-sbt)
          * [Hello world with sbt](#hello-world-with-sbt)
          * [REPL](#repl)
       * [Basics in Scala](#basics-in-scala)
@@ -8,6 +12,8 @@
          * [Expression](#expression)
          * [Function](#function)
          * [Common data structure](#common-data-structure)
+      * [Practice REST API server with Scala](#practice-rest-api-server-with-scala)
+   * [Practice REST API server with Scala](#practice-rest-api-server-with-scala-1)
       * [Scala类型系统：Parameterized Types 和 Variances](#scala类型系统parameterized-types-和-variances)
          * [Why variance](#why-variance)
       * [Common used libraries](#common-used-libraries)
@@ -21,5 +27,8 @@
          * [Monad transformer](#monad-transformer)
          * [Validated](#validated)
       * [Http4s](#http4s)
+      * [Circe](#circe)
       * [Shapeless](#shapeless)
       * [References](#references)
+
+Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
