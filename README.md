@@ -1,19 +1,18 @@
 **A tutorial for Functional programming in Scala**
 
-Table of Contents
-=================
+This book is aimed to be the first place when you starting functional programming in Scala. Feedback and PR are welcome.
 
-      * [Setup](#setup)
-         * [Install Java 8 JDK](#install-java-8-jdk)
-         * [Install sbt](#install-sbt)
-         * [Hello world with sbt](#hello-world-with-sbt)
-         * [REPL](#repl)
-      * [Basics in Scala](#basics-in-scala)
-         * [val vs var](#val-vs-var)
-         * [Expression](#expression)
-         * [Function](#function)
-         * [Common data structure](#common-data-structure)
-      * [Practice REST API server with Scala](#practice-rest-api-server-with-scala)
+* [Setup](#setup)
+   * [Install Java 8 JDK](#install-java-8-jdk)
+   * [Install sbt](#install-sbt)
+   * [Hello world with sbt](#hello-world-with-sbt)
+   * [REPL](#repl)
+* [Basics in Scala](#basics-in-scala)
+   * [val vs var](#val-vs-var)
+   * [Expression](#expression)
+   * [Function](#function)
+   * [Common data structure](#common-data-structure)
+* [Practice REST API server with Scala](#practice-rest-api-server-with-scala)
 
 [TOC]
 
@@ -93,9 +92,22 @@ REPL (Read-Eval-Print Loop) is one of the most useful environments if you want t
   sudo curl -L -o /usr/local/bin/amm https://git.io/vdNv2 && sudo chmod +x /usr/local/bin/amm && amm
   ```
 
+### IDE
+
+[IntelliJ IDEA](https://www.jetbrains.com/idea/) - There is a free community version for idea. 
+
+Open the IntelliJ IDEA, 
+
+* go to **File -> New -> Project from existing sources**, choose the root folder of your project and open.
+* select **sbt** under `Import project from external model`.
+* select **Library sources** and choose the proper JDK version, fow now I use JDK 1.8.
+* click **finish**, now after downloading all the dependencies, you should be able to get your project up. 
+
 ## Basics in Scala
 
-本文包含一些基本的语法和概念，如常量、变量、表达式、函数等。可以通过REPL进行练习，增加对语法的熟悉。
+This section includes some basic concepts in Scala, like basic type (String, Int), data type (List, Option, Either), 
+
+Most of code listed in this book can be run directly in REPL tools like amm.
 
 ### val vs var
 通过val, 可以将表达式的结果赋值给一个常量，常量值不能改变。
