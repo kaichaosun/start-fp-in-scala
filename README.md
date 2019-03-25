@@ -109,6 +109,24 @@ This section includes some basic concepts in Scala, like basic type (String, Int
 
 Most of code listed in this book can be run directly in REPL tools like amm.
 
+### Basic type
+
+Scala provides **nine** predefined basic or scalar type, they are:
+
+* Boolean: `true`, `false`
+* Int: `1`
+* String: `"hello"`
+* Unit: `()`
+* Char: `c`
+* Long: `100L`
+* Short: `100: Short`
+* Float: `31.4f`
+* Double: `3.14d`
+
+### Container type
+
+Data type like `List[A]`, `Option[A]`, `Either[A]` etc, can be viewed as a container of basic type, the formal name in math is called [Higher Kinded Type](https://en.m.wikipedia.org/wiki/Kind_(type_theory)). 
+
 ### val vs var
 通过val, 可以将表达式的结果赋值给一个常量，常量值不能改变。
 ```
