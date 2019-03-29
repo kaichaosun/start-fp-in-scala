@@ -3,7 +3,7 @@ trait FooAble {
 }
 
 trait MyFooAble extends FooAble {
-  override def foo(): String = "foo imple"
+  override def foo(): String = "foo implementation"
 }
 
 class BarWithFooAble {
