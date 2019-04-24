@@ -103,7 +103,7 @@ Open the IntelliJ IDEA,
 * select **Library sources** and choose the proper JDK version, fow now I use JDK 1.8.
 * click **finish**, now after downloading all the dependencies, you should be able to get your project up. 
 
-## Basics in Scala
+## Basic Knowledge in Scala
 
 This section includes some basic concepts in Scala, like basic type (String, Int), data type (List, Option, Either), 
 
@@ -127,7 +127,40 @@ Scala provides **nine** predefined basic or scalar type, they are:
 
 Data type like `List[A]`, `Option[A]`, `Either[A]` etc, can be viewed as a container of basic type, the formal name in math is called [Higher Kinded Type](https://en.m.wikipedia.org/wiki/Kind_(type_theory)). 
 
-### val vs var
+**List:**
+
+```
+scala> List(1,2,3)
+res0: List[Int] = List(1, 2, 3)
+
+scala> 1 :: 2 :: 3 :: Nil
+res1: List[Int] = List(1, 2, 3)
+```
+
+**Set:**
+
+```
+scala> Set(1, 1, 2)
+res2: scala.collection.immutable.Set[Int] = Set(1, 2)
+```
+
+**Seq:**
+
+```
+scala> Seq(1,1,2)
+res3: Seq[Int] = List(1, 1, 2)
+```
+
+**Map:**
+
+```
+scala> Map('a'->1, 'b'->2)
+res4: res1: scala.collection.immutable.Map[Char,Int] = Map(a -> 1, b -> 2) 
+```
+
+**Stream:**  TODO
+
+### Variable
 通过val, 可以将表达式的结果赋值给一个常量，常量值不能改变。
 ```
 scala> val three = 1 + 2
@@ -163,39 +196,194 @@ scala> "hp" match {
 res1: String = computer
 ```
 
+### Conditional Control
+
+
+
+### Loop Control
+
+
+
 ### Function
 
-## [Functions vs Methods](http://jim-mcbeath.blogspot.com/2009/05/scala-functions-vs-methods.html)
+[Functions vs Methods](http://jim-mcbeath.blogspot.com/2009/05/scala-functions-vs-methods.html)
 
-### Common data structure
-**List:**
+### Traits
+
+
+
+### Class & Objects
+
+
+
+### Comment
+
+
+
+## ELI5 - Category Theory
+
+### What's Category Theory
+
+
+
+### Object and Arrow
+
+
+
+### Terminal Object
+
+
+
+### Product Type
+
+
+
+### Sum Type
+
+
+
+### Kleisili Arrow
+
+
+
+### Monoid
+
+
+
+### Functor
+
+
+
+### Monad
+
+## Daily Libraries
+
+### cats
+
+常用的Monad
+
+#### Id
 
 ```
-scala> List(1,2,3)
-res0: List[Int] = List(1, 2, 3)
+import cats.{Id, Monad}
+import cats.syntax.functor._ // for map
+import cats.syntax.flatMap._ // for flatMap
 
-scala> 1 :: 2 :: 3 :: Nil
-res1: List[Int] = List(1, 2, 3)
-```
-**Set:**
-```
-scala> Set(1, 1, 2)
-res2: scala.collection.immutable.Set[Int] = Set(1, 2)
-```
-**Seq:**
-```
-scala> Seq(1,1,2)
-res3: Seq[Int] = List(1, 1, 2)
-```
-**Map:**
-```
-scala> Map('a'->1, 'b'->2)
-res4: res1: scala.collection.immutable.Map[Char,Int] = Map(a -> 1, b -> 2) 
+val a = Monad[Id].pure(3)
+// a: cats.Id[Int] = 3
+val b = Monad[Id].flatMap(a)(_ + 1)
+// b: cats.Id[Int] = 4
+
+for {
+  x <- a
+  y <- b
+} yield x + y
+// res6: cats.Id[Int] = 7
 ```
 
-**Stream:**
+#### Either
 
-## Scala API server
+#### Eval
+
+Eval有三个子类型，Now、Later和Always。
+
+```
+import cats.Eval
+
+val now = Eval.now(1)
+val later = Eval.later(2)
+val always = Eval.always(3)
+```
+
+通过`value`方法进行取值。
+
+Eval和Scala lazy的比较：
+
+| scala    | cats   | properties         |
+| -------- | ------ | ------------------ |
+| val      | Now    | eager, memoized    |
+| lazy val | Later  | lazy, memoized     |
+| def      | Always | lazy, not memoized |
+
+#### Writer
+
+#### State
+
+#### Customized Monad
+
+通过实现flatMap, pure, tailRecM为一个自定义的类型提供Monad。
+
+#### Monad transformer
+
+Cats为很多Monad提供了transformer，以T结尾，如：EitherT是Either和其他Monad组合，OptionT组合Option和其他Monad。
+
+#### Validated
+
+- map, leftMap, bimap
+- toEither
+- withEither
+- ensure
+
+### cats-effect
+
+
+
+### fs2
+
+
+
+### circe
+
+
+
+### http4s
+
+
+
+### doobies
+
+
+
+### monix
+
+
+
+### specs2
+
+
+
+### shapeless
+Function1:
+```scala
+val f: A => B = ???
+```
+
+Natural Transformation:
+```scala
+val nat: F ~> G
+or 
+val nat: F[A] => G[A]
+```
+
+## Common Functionality
+
+This section may not necessary.
+
+### File Read / Write
+
+
+
+### Common Calculation
+
+
+
+### Http Request
+
+
+
+## Use Cases
+
+### Scala Web Server
 
 * Setup a empty project with sbt.
 
@@ -225,13 +413,34 @@ res4: res1: scala.collection.immutable.Map[Char,Int] = Map(a -> 1, b -> 2)
 * Add library `http4s-blaze-client`, and call the endpoint to get post information `https://jsonplaceholder.typicode.com/posts/1`
 
   Resource: https://http4s.org/v0.18/client/
+
 * Decode the previous response to `Post` model and return as API response.
 
   Resource: https://circe.github.io/circe/codecs/custom-codecs.html
 
-## Scala类型系统：Parameterized Types 和 Variances
+### Big Data Process
 
-### Why variance
+
+
+### Web Crawler
+
+
+
+### Machine Learning
+
+TODO
+
+
+
+### ScalaJS
+
+
+
+## Other Knowledge
+
+### Scala Type System: Parameterized Types and Variances
+
+#### Why variance
 Scala中集合是covariance，我们可以使用子类集合替换父类集合。例如，List[Circle]可以用于任意需要一个List[Shape]的地方，因为Circle是Shape的子类。
 
 Contravariance, 当构造代表一些操作的类型时，十分有用。如JsonWriter type class:
@@ -253,89 +462,6 @@ def format[A](value: A, writer: JsonWriter[A]): Json =
 JsonWriter[Shape]是JsonWriter[Circle]的子类，也就是所，任何使用shapeWriter的地方可以用circleWriter替换。
 那么我们的circle就可以和任意一个writer结合使用。
 
-
-## Common used libraries
-
-## Cats
-
-常用的Monad
-
-### Id
-
-```
-import cats.{Id, Monad}
-import cats.syntax.functor._ // for map
-import cats.syntax.flatMap._ // for flatMap
-
-val a = Monad[Id].pure(3)
-// a: cats.Id[Int] = 3
-val b = Monad[Id].flatMap(a)(_ + 1)
-// b: cats.Id[Int] = 4
-
-for {
-  x <- a
-  y <- b
-} yield x + y
-// res6: cats.Id[Int] = 7
-```
-### Either
-
-### Eval Manad
-Eval有三个子类型，Now、Later和Always。
-```
-import cats.Eval
-
-val now = Eval.now(1)
-val later = Eval.later(2)
-val always = Eval.always(3)
-```
-通过`value`方法进行取值。
-
-Eval和Scala lazy的比较：
-| scala | cats | properties |
-|---|---|---|
-| val | Now | eager, memoized |
-| lazy val | Later | lazy, memoized |
-| def | Always | lazy, not memoized |
-
-### Writer
-
-### State
-
-### Custom Monad
-通过实现flatMap, pure, tailRecM为一个自定义的类型提供Monad。
-
-### Monad transformer
-
-Cats为很多Monad提供了transformer，以T结尾，如：EitherT是Either和其他Monad组合，OptionT组合Option和其他Monad。
-
-### Validated
-* map, leftMap, bimap
-* toEither
-* withEither
-* ensure
-
-
-## Http4s
-
-HTTP applications are jsut a Kleisli function from a streaming request to a polymorphic effect of a streaming reponse.
-
-https://rossabaker.github.io/boston-http4s/
-
-## Circe
-
-## Shapeless
-Function1:
-```scala
-val f: A => B = ???
-```
-
-Natural Transformation:
-```scala
-val nat: F ~> G
-or 
-val nat: F[A] => G[A]
-```
 
 ## References
 [1] https://blog.codecentric.de/en/2015/03/scala-type-system-parameterized-types-variances-part-1/
