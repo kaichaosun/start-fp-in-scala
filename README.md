@@ -513,11 +513,49 @@ post.asJson.noSpaces
 
 Easy and cool, right?
 
+Please write the decoder and encoder for the nested JSON data.
+
 ### http4s
 
+When you want to start a HTTP server, or a HTTP client to send request to get data from certain API, http4s could make your life much easies. It's designed to be pure functional and light weight. You will see the `IO` in cats-effect mentions a lot during play with http4s.
+
+#### Server
+
+Before you writing more code, you should bare in mind that this library heavily depends on cats. So do not forget to import `cats.implicits._` if you meet any weird issue. Also, the library is still in fast involvement, please use this latest version. The code below uses `0.20.0`.
+
+```scala
+// Construct an HttpRoutes
+val helloHttpRoute = HttpRoutes.of[IO] {
+  case GET -> Root / "hello" / name =>
+  Ok(s"hello $name from http4s")
+}
+
+// Build an HttpApp which is alias for Kleisli (wrap for function: A => F[B])
+val httpApp = Router(
+  "/" -> helloHttpRoute
+).orNotFound
+
+// Start up a server
+BlazeServerBuilder[IO]
+  .bindHttp(8080, "0.0.0.0")
+  .withHttpApp(httpApp)
+  .serve
+  .compile
+  .drain
+  .as(ExitCode.Success)
+```
+
+`GET` `Root` `Ok` keyword are all from dsl provided by http4s, it defined in ` org.http4s.dsl.io._`.
+
+`BlazeServerBuilder` is used to setup a server, and it uses fs2 `stream` as a stream processing container.
+
+Check the [full souce code](TODO).
+
+#### Client
 
 
-### doobies
+
+### doobie
 
 
 

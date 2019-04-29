@@ -14,7 +14,7 @@ lazy val root = (project in file(".")).
 
 val CirceVersion = "0.10.0"
 val Specs2Version = "4.0.2"
-val Http4sVersion = "0.18.0"
+val Http4sVersion = "0.20.0"
 val AkkaVersion = "2.5.6"
 val CatsVersion = "1.0.1"
 val doobieVersion = "0.6.0"
