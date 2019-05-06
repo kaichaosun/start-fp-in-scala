@@ -71,6 +71,12 @@ This book is aimed to be the first place when you starting functional programmin
       * [Why variance](#why-variance)
 * [References](#references)
 
+## Functional Programming Introduction
+
+### Whats FP
+
+### Why FP
+
 ## Setup
 
 ### Install Java 8 JDK
