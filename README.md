@@ -104,7 +104,6 @@ There are lots of people knows OO, but really less people understand FP. Once so
 * Easily mock in unit test.
 * Less bug.
 * Makes me love to be a developer.
-* …...
 
 ## Setup
 
