@@ -760,7 +760,7 @@ JsonWriter[Shape]是JsonWriter[Circle]的子类，也就是所，任何使用sha
 
 [![License: CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-This book is licensed under the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en). Please [contact me](kaichaosuna@gmail.com) if you have questions about the license.
+This book is licensed under the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en). Please [contact me](mailto:kaichaosuna@gmail.com) if you have questions about the license.
 
 
 
