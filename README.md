@@ -90,8 +90,8 @@ But why it's so hard to learn for new comers.
 
 From my learning experience, a few pain points are:
 
-* too many unintuitive termnology like functor, monad, etc
-* reading a lot of theory, but practice too late
+* Too many unintuitive termnology like functor, monad, etc. Actually you can start enjoy the convinence that FP brings without understanding all these words.
+* Reading a lot of book, but practice too late. As you use more features in Scala, you will find more beauty in FP.
 
 So in this book, I encourage you to practice as much as you can, it doesn't need to be formal, REPL expression is always a good start.
 
@@ -756,6 +756,11 @@ def format[A](value: A, writer: JsonWriter[A]): Json =
 JsonWriter[Shape]是JsonWriter[Circle]的子类，也就是所，任何使用shapeWriter的地方可以用circleWriter替换。
 那么我们的circle就可以和任意一个writer结合使用。
 
+## License
 
-## References
-[1] https://blog.codecentric.de/en/2015/03/scala-type-system-parameterized-types-variances-part-1/
+[![License: CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+This book is licensed under the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en). Please [contact me](kaichaosuna@gmail.com) if you have questions about the license.
+
+
+
