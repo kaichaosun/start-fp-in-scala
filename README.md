@@ -464,6 +464,8 @@ Cats为很多Monad提供了transformer，以T结尾，如：EitherT是Either和�
 
 
 
+
+
 ### circe
 
 [Circe](https://circe.github.io/circe/) is a library which helps handle JSON format data. You can easily decode a JSON HTTP response to a case class. If you are working on API service, probably you will use it to encode your model with JSON format, then return to the API consumer.
