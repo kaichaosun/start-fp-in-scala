@@ -1,0 +1,6 @@
+[book]
+authors = ["kaichao"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Start FP in Scala"

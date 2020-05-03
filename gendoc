@@ -1,4 +1,0 @@
-#!/bin/bash
-
-docsify init ./docs
-
